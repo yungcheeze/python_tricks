@@ -1,3 +1,6 @@
+import itertools
+
+
 class DictListMemberWraper(object):
     """
     A class to make a list of dictionary act like a list of values
@@ -17,3 +20,11 @@ class DictListMemberWraper(object):
 
     def __len__(self):
         return self.dict_list.__len__()
+
+
+def infinite_iter(iterable):
+    """
+    infinitely return identical references to the same iterable
+    i.e. the iterator will always have the same id
+    """
+    itertools.cycle([iter(iterable)])
